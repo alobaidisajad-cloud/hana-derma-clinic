@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations as t } from '@/lib/translations';
@@ -35,11 +36,9 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-            className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-blush-dark/15 bg-white/50 backdrop-blur-sm mb-8 sm:mb-12"
+            className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full border border-blush-dark/15 bg-white/50 backdrop-blur-sm mb-8 sm:mb-12 overflow-hidden"
           >
-            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-blush-dark/10 flex items-center justify-center bg-white/70">
-              <span className="font-playfair text-blush-dark text-lg sm:text-xl font-semibold">H</span>
-            </div>
+            <Image src="/logo.png" alt="Hana Derma Clinic" width={96} height={96} className="w-full h-full object-cover" />
           </motion.div>
         </ScrollReveal>
 

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, Globe } from 'lucide-react';
+import Image from 'next/image';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations as t } from '@/lib/translations';
 
@@ -41,8 +42,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full border border-blush-dark/20 flex items-center justify-center bg-white/60 group-hover:border-blush-dark/40 transition-colors duration-300">
-              <span className="font-playfair text-blush-dark text-base font-semibold">H</span>
+            <div className="w-10 h-10 rounded-full overflow-hidden border border-blush-dark/20 group-hover:border-blush-dark/40 transition-colors duration-300">
+              <Image src="/logo.png" alt="Hana Derma Clinic" width={40} height={40} className="w-full h-full object-cover" />
             </div>
             <span className="font-playfair text-text-primary text-[15px] font-medium tracking-wide hidden sm:block">
               {isArabic ? 'هناء ديرما' : 'Hana Derma'}

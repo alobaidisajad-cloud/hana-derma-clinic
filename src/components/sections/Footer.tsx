@@ -1,6 +1,7 @@
 'use client';
 
 import { Heart } from 'lucide-react';
+import Image from 'next/image';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations as t } from '@/lib/translations';
 
@@ -54,8 +55,8 @@ export default function Footer() {
           {/* Logo — full width on mobile */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 sm:gap-2.5 mb-3 sm:mb-4">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-white/10 flex items-center justify-center">
-                <span className="font-playfair text-blush/70 text-xs sm:text-sm font-semibold">H</span>
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-white/10">
+                <Image src="/logo.png" alt="Hana Derma Clinic" width={36} height={36} className="w-full h-full object-cover" />
               </div>
               <span className="font-playfair text-white/80 text-xs sm:text-sm">
                 {lang === 'en' ? 'Hana Derma-Clinic' : 'عيادة هناء ديرما'}
