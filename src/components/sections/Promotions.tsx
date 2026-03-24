@@ -64,19 +64,19 @@ export default function Promotions() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, #3D2E2E 0%, #5A3E3E 50%, #4A3535 100%)',
+          background: 'linear-gradient(135deg, #3D2E32 0%, #5A3040 50%, #4A2838 100%)',
         }}
       />
 
       {/* Subtle decoration */}
-      <div className="absolute top-0 right-0 w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] rounded-full bg-blush/5 blur-[80px]" />
-      <div className="absolute bottom-0 left-0 w-[150px] sm:w-[250px] h-[150px] sm:h-[250px] rounded-full bg-gold/5 blur-[80px]" />
+      <div className="absolute top-0 right-0 w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] rounded-full bg-blush/8 blur-[80px]" />
+      <div className="absolute bottom-0 left-0 w-[150px] sm:w-[250px] h-[150px] sm:h-[250px] rounded-full bg-rose/8 blur-[80px]" />
 
       <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
         <ScrollReveal>
           {/* Badge */}
           <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white/8 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1 sm:py-1.5 mb-6 sm:mb-10">
-            <Gift className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gold-light" />
+            <Gift className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-rose-light" />
             <span className="text-white/70 text-[10px] sm:text-[11px] font-medium tracking-wider uppercase">
               {t.promo.badge[lang]}
             </span>

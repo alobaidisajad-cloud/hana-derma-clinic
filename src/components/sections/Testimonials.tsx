@@ -11,7 +11,7 @@ function StarRating({ rating }: { rating: number }) {
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
-          className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${i < rating ? 'text-gold fill-gold' : 'text-black/[0.06]'}`}
+          className={`w-2.5 h-2.5 sm:w-3 sm:h-3 ${i < rating ? 'text-rose fill-rose' : 'text-black/[0.06]'}`}
         />
       ))}
     </div>
@@ -57,7 +57,7 @@ export default function Testimonials() {
 
                 {/* Author */}
                 <div className="flex items-center gap-2.5 sm:gap-3 pt-3 sm:pt-5 border-t border-black/[0.04]">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-blush/40 to-gold-light/30 flex items-center justify-center flex-shrink-0">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-blush/40 to-rose-light/40 flex items-center justify-center flex-shrink-0">
                     <span className="text-text-secondary text-[10px] sm:text-[11px] font-medium">
                       {item.name[lang].charAt(0)}
                     </span>

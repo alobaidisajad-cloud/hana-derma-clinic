@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { useInView } from 'framer-motion';
 
 interface AnimatedCounterProps {
   target: number;
@@ -18,12 +17,30 @@ export default function AnimatedCounter({
   duration = 2000,
   className = '',
 }: AnimatedCounterProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const ref = useRef<HTMLSpanElement>(null);
   const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [hasStarted]);
+
+  useEffect(() => {
+    if (!hasStarted) return;
 
     let startTime: number;
     let animationFrame: number;
@@ -31,8 +48,6 @@ export default function AnimatedCounter({
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
-
-      // Ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * target));
 
@@ -43,7 +58,7 @@ export default function AnimatedCounter({
 
     animationFrame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationFrame);
-  }, [isInView, target, duration]);
+  }, [hasStarted, target, duration]);
 
   return (
     <span ref={ref} className={className}>

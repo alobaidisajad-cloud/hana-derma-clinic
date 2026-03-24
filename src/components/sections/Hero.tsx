@@ -14,12 +14,12 @@ export default function Hero() {
       className="relative min-h-[85dvh] sm:min-h-[100dvh] flex items-center justify-center overflow-hidden"
       style={{
         background:
-          'linear-gradient(160deg, #FFFAF7 0%, #FDF0F1 35%, #F9D9DC 65%, #F0C8B8 100%)',
+          'linear-gradient(160deg, #FFFAF7 0%, #FDF0F1 30%, #F9D9DC 55%, #F4B5C1 80%, #E8899A20 100%)',
       }}
     >
       {/* Subtle geometric accents */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-blush/10 blur-[120px] -translate-y-1/3 translate-x-1/4" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gold/8 blur-[100px] translate-y-1/3 -translate-x-1/4" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-blush/15 blur-[120px] -translate-y-1/3 translate-x-1/4" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-rose/10 blur-[100px] translate-y-1/3 -translate-x-1/4" />
 
       {/* Thin decorative lines */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">

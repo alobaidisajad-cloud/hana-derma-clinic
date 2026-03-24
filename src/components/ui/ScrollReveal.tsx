@@ -1,14 +1,12 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
 
 interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right';
-  duration?: number;
 }
 
 export default function ScrollReveal({
@@ -16,27 +14,40 @@ export default function ScrollReveal({
   className = '',
   delay = 0,
   direction = 'up',
-  duration = 0.6,
 }: ScrollRevealProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const ref = useRef<HTMLDivElement>(null);
+  const [revealed, setRevealed] = useState(false);
 
-  const directionOffset = {
-    up: { y: 40 },
-    down: { y: -40 },
-    left: { x: 40 },
-    right: { x: -40 },
-  };
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Apply delay via setTimeout for staggering
+          if (delay > 0) {
+            setTimeout(() => setRevealed(true), delay * 1000);
+          } else {
+            setRevealed(true);
+          }
+          observer.unobserve(el);
+        }
+      },
+      { rootMargin: '-40px', threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [delay]);
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{ opacity: 0, ...directionOffset[direction] }}
-      animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
-      transition={{ duration, delay, ease: 'easeOut' }}
-      className={className}
+      className={`scroll-reveal scroll-reveal--${direction} ${revealed ? 'revealed' : ''} ${className}`}
+      style={delay > 0 ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

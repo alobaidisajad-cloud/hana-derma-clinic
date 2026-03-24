@@ -17,10 +17,10 @@ export default function About() {
           <ScrollReveal direction={isArabic ? 'right' : 'left'}>
             <div className="flex justify-center">
               <div className="relative">
-                <div className="w-48 h-48 sm:w-[280px] sm:h-[280px] lg:w-[320px] lg:h-[320px] rounded-full p-[2px] sm:p-[3px] bg-gradient-to-br from-blush-dark/20 via-blush/30 to-gold/20">
+                <div className="w-48 h-48 sm:w-[280px] sm:h-[280px] lg:w-[320px] lg:h-[320px] rounded-full p-[2px] sm:p-[3px] bg-gradient-to-br from-blush-dark/20 via-blush/30 to-rose/25">
                   <div className="w-full h-full rounded-full overflow-hidden"
                     style={{
-                      background: 'linear-gradient(135deg, #F5E6E8 0%, #E8C9CD 40%, #D4A574 100%)',
+                      background: 'linear-gradient(135deg, #F5E6E8 0%, #E8C9CD 40%, #E8899A 100%)',
                     }}
                   >
                     <div className="w-full h-full flex items-center justify-center">

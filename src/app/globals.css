@@ -7,14 +7,12 @@
   --color-blush-dark: #C4858C;
   --color-cream: #FFF8F0;
   --color-cream-dark: #F5EDE3;
-  --color-gold: #D4A574;
-  --color-gold-light: #E8C9A0;
-  --color-gold-dark: #B8884E;
-  --color-rose: #E8A5AB;
-  --color-rose-dark: #C4858C;
+  --color-rose: #E8899A;
+  --color-rose-light: #F4B5C1;
+  --color-rose-dark: #C4687A;
   --color-warm-white: #FFFAF7;
-  --color-warm-gray: #8B7E74;
-  --color-warm-gray-light: #B5A99A;
+  --color-warm-gray: #8B7880;
+  --color-warm-gray-light: #B5A0A8;
   --color-text-primary: #3D2E2E;
   --color-text-secondary: #6B5858;
   --color-text-light: #9B8A8A;
@@ -53,6 +51,24 @@
 @keyframes pulse-soft {
   0%, 100% { opacity: 0.6; }
   50% { opacity: 1; }
+}
+
+/* ─── Scroll Reveal (lightweight CSS transitions) ─── */
+.scroll-reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal--up { transform: translateY(32px); }
+.scroll-reveal--down { transform: translateY(-32px); }
+.scroll-reveal--left { transform: translateX(32px); }
+.scroll-reveal--right { transform: translateX(-32px); }
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
 /* ─── Base Styles ─── */
