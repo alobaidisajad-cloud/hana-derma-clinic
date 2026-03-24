@@ -48,7 +48,7 @@ export default function Footer() {
   const { lang } = useLanguage();
 
   return (
-    <footer className="bg-text-primary">
+    <footer style={{ background: 'linear-gradient(135deg, #3D2E32 0%, #5A3040 50%, #4A2838 100%)' }}>
       <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8 py-10 sm:py-16">
         {/* Mobile: 2-column / Desktop: 3-column */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12">

@@ -6,7 +6,11 @@ function LanguageWrapper({ children }: { children: React.ReactNode }) {
   const { isArabic } = useLanguage();
 
   return (
-    <div dir={isArabic ? 'rtl' : 'ltr'} lang={isArabic ? 'ar' : 'en'}>
+    <div
+      dir={isArabic ? 'rtl' : 'ltr'}
+      lang={isArabic ? 'ar' : 'en'}
+      style={isArabic ? { fontFamily: 'var(--font-cairo), system-ui, sans-serif' } : undefined}
+    >
       {children}
     </div>
   );
