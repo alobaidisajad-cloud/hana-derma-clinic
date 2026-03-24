@@ -9,7 +9,7 @@ function LanguageWrapper({ children }: { children: React.ReactNode }) {
     <div
       dir={isArabic ? 'rtl' : 'ltr'}
       lang={isArabic ? 'ar' : 'en'}
-      style={isArabic ? { fontFamily: 'var(--font-cairo), system-ui, sans-serif' } : undefined}
+      style={isArabic ? { fontFamily: "'Cairo', 'Noto Sans Arabic', system-ui, sans-serif" } : undefined}
     >
       {children}
     </div>
