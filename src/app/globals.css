@@ -114,4 +114,15 @@ body {
 [dir="rtl"],
 [dir="rtl"] * {
   font-family: 'Cairo', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* ─── Hide scrollbar on horizontal scroll ─── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
