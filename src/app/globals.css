@@ -75,6 +75,7 @@
 /* ─── Base Styles ─── */
 html {
   scroll-behavior: smooth;
+  color-scheme: light only;
 }
 
 body {

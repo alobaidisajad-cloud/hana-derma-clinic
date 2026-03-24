@@ -42,8 +42,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-[72px]">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full overflow-hidden border border-blush-dark/20 group-hover:border-blush-dark/40 transition-colors duration-300">
-              <Image src="/logo.png" alt="Hana Derma Clinic" width={40} height={40} className="w-full h-full object-cover" />
+            <div className="w-10 h-10 rounded-full overflow-hidden">
+              <Image src="/logo.png" alt="Hana Derma Clinic" width={40} height={40} className="w-full h-full object-cover scale-110" />
             </div>
             <span className="font-playfair text-text-primary text-[15px] font-medium tracking-wide hidden sm:block">
               {isArabic ? 'هناء ديرما' : 'Hana Derma'}

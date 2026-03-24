@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   title: "Hana Derma Clinic | عيادة هناء ديرما",
   description:
     "عيادة متخصصة بالأمراض الجلدية والتجميل والليزر — Specialist Dermatology, Cosmetology & Laser Clinic by Dr. Hana Ahmed Al-Mudarris",
+  other: {
+    'color-scheme': 'light only',
+  },
 };
 
 export default function RootLayout({
@@ -40,6 +43,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${inter.variable} ${cairo.variable} antialiased`}
       suppressHydrationWarning
+      style={{ colorScheme: 'light' }}
     >
       <body className="min-h-screen bg-warm-white">
         <ClientLayout>{children}</ClientLayout>

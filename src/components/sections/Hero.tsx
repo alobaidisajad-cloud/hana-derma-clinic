@@ -36,9 +36,9 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-            className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full border border-blush-dark/15 bg-white/50 backdrop-blur-sm mb-8 sm:mb-12 overflow-hidden"
+            className="inline-flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full mb-8 sm:mb-12 overflow-hidden shadow-lg shadow-blush-dark/10"
           >
-            <Image src="/logo.png" alt="Hana Derma Clinic" width={96} height={96} className="w-full h-full object-cover" />
+            <Image src="/logo.png" alt="Hana Derma Clinic" width={112} height={112} className="w-full h-full object-cover scale-110" />
           </motion.div>
         </ScrollReveal>
 
