@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, Globe } from 'lucide-react';
 import Image from 'next/image';
@@ -25,6 +25,19 @@ export default function Navbar() {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMobileOpen(false);
+    setTimeout(() => {
+      const target = document.querySelector(href);
+      if (target) {
+        const navHeight = 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }, 300);
   }, []);
 
   return (
@@ -56,6 +69,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-[13px] text-text-secondary hover:text-text-primary transition-colors duration-300 tracking-wide uppercase"
               >
                 {t.nav[link.key][lang]}
@@ -77,6 +91,7 @@ export default function Navbar() {
 
             <a
               href="#contact"
+              onClick={(e) => handleNavClick(e, '#contact')}
               className="hidden sm:flex items-center gap-2 bg-text-primary hover:bg-text-primary/90 text-white px-5 py-2 rounded-full text-xs font-medium tracking-wide transition-all duration-300 hover:shadow-md"
             >
               <Phone size={12} />
@@ -109,7 +124,7 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                   className="block text-text-secondary hover:text-text-primary transition-colors py-3 text-[15px]"
                 >
                   {t.nav[link.key][lang]}
@@ -118,7 +133,7 @@ export default function Navbar() {
               <div className="pt-4">
                 <a
                   href="#contact"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(e) => handleNavClick(e, '#contact')}
                   className="flex items-center justify-center gap-2 bg-text-primary text-white px-6 py-3 rounded-full text-sm font-medium"
                 >
                   <Phone size={14} />

@@ -18,19 +18,11 @@ export default function Hero() {
           'linear-gradient(160deg, #FFFAF7 0%, #FDF0F1 30%, #F9D9DC 55%, #F4B5C1 80%, #E8899A20 100%)',
       }}
     >
-      {/* Subtle geometric accents */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-blush/15 blur-[120px] -translate-y-1/3 translate-x-1/4" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-rose/10 blur-[100px] translate-y-1/3 -translate-x-1/4" />
+      {/* Soft blurred accents — contained within section */}
+      <div className="absolute top-0 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-blush/15 blur-[120px] -translate-y-1/3 translate-x-1/4 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] rounded-full bg-rose/10 blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
 
-      {/* Thin decorative lines */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
-        <line x1="20%" y1="0" x2="20%" y2="100%" stroke="currentColor" strokeWidth="1" />
-        <line x1="80%" y1="0" x2="80%" y2="100%" stroke="currentColor" strokeWidth="1" />
-        <circle cx="20%" cy="30%" r="80" stroke="currentColor" strokeWidth="0.5" fill="none" />
-        <circle cx="80%" cy="70%" r="60" stroke="currentColor" strokeWidth="0.5" fill="none" />
-      </svg>
-
-      <div className="relative z-10 max-w-3xl mx-auto px-5 sm:px-6 text-center py-20 sm:py-32">
+      <div className="relative z-10 w-full max-w-3xl mx-auto px-5 sm:px-6 text-center py-20 sm:py-32">
         {/* Floating Logo Badge */}
         <ScrollReveal delay={0.1}>
           <motion.div
