@@ -113,5 +113,5 @@ body {
 /* ─── Arabic / RTL font ─── */
 [dir="rtl"],
 [dir="rtl"] * {
-  font-family: var(--font-cairo), 'Cairo', system-ui, sans-serif !important;
+  font-family: 'Cairo', sans-serif !important;
 }

@@ -19,13 +19,27 @@ const navLinks = [
 export default function Navbar() {
   const { lang, toggle, isArabic } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      setScrolled(currentY > 50);
+
+      // Hide on scroll down, show on scroll up
+      if (currentY > lastScrollY && currentY > 100) {
+        setHidden(true);
+        setMobileOpen(false);
+      } else {
+        setHidden(false);
+      }
+      setLastScrollY(currentY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -43,8 +57,8 @@ export default function Navbar() {
   return (
     <motion.nav
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      animate={{ y: hidden ? -100 : 0 }}
+      transition={{ duration: 0.35, ease: 'easeInOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? 'bg-white/80 backdrop-blur-xl shadow-[0_1px_0_0_rgba(0,0,0,0.04)]'
@@ -77,9 +91,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Right side: Lang toggle + CTA + Mobile */}
+          {/* Right side */}
           <div className="flex items-center gap-3">
-            {/* Language Toggle */}
             <button
               onClick={toggle}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-text-secondary hover:text-text-primary border border-transparent hover:border-blush/30 transition-all duration-300"

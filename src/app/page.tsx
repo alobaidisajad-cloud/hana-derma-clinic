@@ -7,6 +7,7 @@ import Promotions from '@/components/sections/Promotions';
 import Testimonials from '@/components/sections/Testimonials';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/sections/Footer';
+import ScrollToTop from '@/components/ui/ScrollToTop';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }
