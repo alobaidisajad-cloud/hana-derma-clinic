@@ -19,6 +19,7 @@
 
   --font-playfair: var(--font-playfair-display);
   --font-inter: var(--font-inter-sans);
+  --font-arabic: var(--font-cairo);
 
   --animate-fade-in: fade-in 0.6s ease-out forwards;
   --animate-slide-up: slide-up 0.6s ease-out forwards;
@@ -106,4 +107,17 @@ body {
 ::selection {
   background-color: var(--color-blush);
   color: var(--color-text-primary);
+}
+
+/* ─── Arabic / RTL font ─── */
+[dir="rtl"] {
+  font-family: var(--font-arabic), var(--font-inter), system-ui, sans-serif;
+}
+
+[dir="rtl"] .font-playfair,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4 {
+  font-family: var(--font-arabic), var(--font-playfair), serif;
 }
