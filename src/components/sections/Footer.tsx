@@ -55,8 +55,8 @@ export default function Footer() {
           {/* Logo — full width on mobile */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2 sm:gap-2.5 mb-3 sm:mb-4">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden border border-white/10">
-                <Image src="/logo.png" alt="Hana Derma Clinic" width={36} height={36} className="w-full h-full object-cover" />
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden">
+                <Image src="/logo.png" alt="Hana Derma Clinic" width={36} height={36} className="w-full h-full object-cover scale-125" />
               </div>
               <span className="font-playfair text-white/80 text-xs sm:text-sm">
                 {lang === 'en' ? 'Hana Derma-Clinic' : 'عيادة هناء ديرما'}
