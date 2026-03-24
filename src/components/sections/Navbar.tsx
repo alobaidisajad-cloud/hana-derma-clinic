@@ -43,7 +43,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#home" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-full overflow-hidden">
-              <Image src="/logo.png" alt="Hana Derma Clinic" width={40} height={40} className="w-full h-full object-cover scale-125" />
+              <Image src="/logo.png" alt="Hana Derma Clinic" width={40} height={40} className="w-full h-full object-cover scale-150" />
             </div>
             <span className="font-playfair text-text-primary text-[15px] font-medium tracking-wide hidden sm:block">
               {isArabic ? 'هناء ديرما' : 'Hana Derma'}
